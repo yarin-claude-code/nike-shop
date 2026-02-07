@@ -4,7 +4,7 @@
 
 You operate as the decision-maker in a modular system. Your job is NOT to do everything yourself. Your job is to read instructions, pick the right tools, handle errors intelligently, and improve the system over time.
 
-Why? 90% accuracy across 5 steps = 59% total success. Push repeatable work into tested scripts. You focus on decisions.
+Why? 90% accuracy across 5 steps = 59% total success. Move repeatable work into tested scripts. You focus on decisions.
 
 ## System Architecture
 
@@ -12,7 +12,7 @@ Why? 90% accuracy across 5 steps = 59% total success. Push repeatable work into 
 
 **Scripts (/scripts)** - Tested, deterministic code. Call these instead of writing from scratch.
 
-**Workspace (/.workspace)** - Temp files. Never commit. Delete anytime.
+**Workspace (/.workspace)** - Temp files. Safe to delete anytime.
 
 ## How You Operate
 
@@ -21,24 +21,10 @@ Why? 90% accuracy across 5 steps = 59% total success. Push repeatable work into 
 3. Fail forward - Error → Fix → Test → Update blueprint → Add to LEARNINGS.md → System smarter
 4. Ask before creating - Don't overwrite blueprints without asking
 
-## Git Workflow Automation
+## Git Workflow
 
-### Mission Start → New Branch
-When starting a new mission/feature, create a new branch from `main`:
-- Branch naming: `feat/<short-description>`, `fix/<short-description>`, or `chore/<short-description>`
-- Example: `git checkout -b feat/add-product-carousel`
-
-### Task Complete → Commit & Push
-After each individual task is completed and verified:
-1. Stage the relevant changed files
-2. Create a descriptive commit
-3. Push to the remote branch immediately
-
-### Big Task / Mission Complete → Auto PR
-When an entire mission (group of tasks / feature) is finished:
-1. Push any remaining commits
-2. Automatically create a Pull Request via `gh pr create`
-3. PR should target `main` with a clear title and summary of all changes
+ONlY create branches for tasks.
+committing, and pushing are coordinated by the human collaborator. Focus on delivering the requested changes; they will decide how and when to sync with the remote repository.
 
 ## Tech Stack
 
@@ -70,6 +56,7 @@ When an entire mission (group of tasks / feature) is finished:
 ## Testing & Verification
 
 After making changes:
+
 1. Run `npm run build` from root - both apps must build successfully
 2. For backend changes: Run `npm run test` in apps/backend
 3. For frontend changes: Run `npm run dev` and verify in browser
@@ -141,6 +128,7 @@ users (1) ─────< (N) addresses
 ```
 
 **Key Tables:**
+
 - **users**: Customer accounts (BIGINT IDENTITY PK)
 - **products**: Shoe inventory with product images
 - **product_variants**: Size/color combinations with stock
@@ -150,6 +138,7 @@ users (1) ─────< (N) addresses
 - **categories**: Running, Basketball, Lifestyle, etc.
 
 **PostgreSQL Best Practices Applied:**
+
 - ✅ BIGINT GENERATED ALWAYS AS IDENTITY for PKs
 - ✅ TEXT instead of VARCHAR(n)
 - ✅ NUMERIC(10,2) for prices (never float)
@@ -166,6 +155,7 @@ users (1) ─────< (N) addresses
 Products use regular images stored in the database through the `product_images` table. Each product can have multiple images for different angles/views. No 3D viewers — standard product photography only.
 
 **Image Component:**
+
 - **ProductImageViewer** ([apps/frontend/src/components/product/ProductImageViewer.tsx](apps/frontend/src/components/product/ProductImageViewer.tsx))
 - Displays product images with thumbnail navigation
 - Color selector for different variants
@@ -173,6 +163,7 @@ Products use regular images stored in the database through the `product_images` 
 - Responsive grid layout
 
 **Best Practices:**
+
 - Use optimized image formats (WebP preferred)
 - Multiple images per product (different angles)
 - Consistent aspect ratios (square format)
@@ -196,6 +187,7 @@ The homepage is a single-page layout with anchor navigation. Sections in order:
 ## Design System
 
 See [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) for complete details on:
+
 - Color palette (primary, accent, surface colors)
 - Typography scale and style guidelines
 - Component classes (buttons, cards, badges)
@@ -203,6 +195,7 @@ See [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) for complete details on:
 - Mock data location and key frontend file references
 
 **Quick Reference:**
+
 - Philosophy: Nike/Adidas-inspired, bold, high-contrast, dark mode first
 - Primary accent: #FF3B30 (electric red)
 - Component styles: See [apps/frontend/src/index.css](apps/frontend/src/index.css)
