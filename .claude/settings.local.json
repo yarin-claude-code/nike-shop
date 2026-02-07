@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip:*)",
+      "Bash(dir:*)",
+      "Bash(/c/Program Files/nodejs/npm.cmd install)",
+      "Bash(psql:*)",
+      "Bash(PGPASSWORD=yarind250 psql:*)",
+      "Bash(findstr:*)",
+      "Bash(powershell -Command:*)",
+      "Read(//c/claude-projects/nike-shop/**)",
+      "Bash(tree:*)",
+      "Bash(tsconfig)",
+      "Bash(env \")",
+      "Bash(pg_isready:*)",
+      "Bash(set:*)",
+      "Bash(timeout:*)",
+      "Bash(pip3 show:*)"
+    ]
+  }
+}

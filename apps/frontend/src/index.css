@@ -1,0 +1,331 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   NIKE/ADIDAS-INSPIRED DESIGN SYSTEM
+   Bold. Minimal. High-Impact.
+   ============================================ */
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black text-white antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-accent text-white;
+  }
+
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-700 rounded-full hover:bg-primary-600;
+  }
+}
+
+@layer components {
+  /* ============================================
+     BUTTONS - Nike-inspired bold CTAs
+     ============================================ */
+  .btn {
+    @apply inline-flex items-center justify-center font-bold uppercase tracking-wider text-sm transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-white text-black px-8 py-4 hover:bg-primary-200 active:scale-95;
+  }
+
+  .btn-accent {
+    @apply btn bg-accent text-white px-8 py-4 hover:bg-accent-600 active:scale-95 shadow-glow-red;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-white text-white px-8 py-4 hover:bg-white hover:text-black active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply btn text-white px-6 py-3 hover:bg-white/10 active:scale-95;
+  }
+
+  /* ============================================
+     CARDS - Elevated surfaces
+     ============================================ */
+  .card {
+    @apply bg-surface-light rounded-none border border-primary-800 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:border-white hover:shadow-glow-white hover:-translate-y-1;
+  }
+
+  .card-product {
+    @apply card-hover cursor-pointer overflow-hidden;
+  }
+
+  /* ============================================
+     TYPOGRAPHY - Bold display text
+     ============================================ */
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-primary-200 to-white bg-clip-text text-transparent;
+  }
+
+  .text-gradient-accent {
+    @apply bg-gradient-to-r from-accent via-accent-cyan to-accent bg-clip-text text-transparent;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+  }
+
+  /* ============================================
+     MARQUEE - Scrolling text ticker
+     ============================================ */
+  .marquee-container {
+    @apply overflow-hidden whitespace-nowrap;
+  }
+
+  .marquee-content {
+    @apply inline-flex animate-marquee;
+  }
+
+  .marquee-content:hover {
+    animation-play-state: paused;
+  }
+
+  /* ============================================
+     SCROLL ANIMATIONS
+     ============================================ */
+  .scroll-reveal {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .scroll-reveal.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .scroll-reveal-left {
+    @apply opacity-0 -translate-x-8 transition-all duration-700 ease-out;
+  }
+
+  .scroll-reveal-left.visible {
+    @apply opacity-100 translate-x-0;
+  }
+
+  .scroll-reveal-right {
+    @apply opacity-0 translate-x-8 transition-all duration-700 ease-out;
+  }
+
+  .scroll-reveal-right.visible {
+    @apply opacity-100 translate-x-0;
+  }
+
+  /* ============================================
+     GRID PATTERNS
+     ============================================ */
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* ============================================
+     GLASS MORPHISM
+     ============================================ */
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  .glass-dark {
+    @apply bg-black/50 backdrop-blur-lg border border-white/5;
+  }
+
+  /* ============================================
+     HOVER EFFECTS
+     ============================================ */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-glow-white;
+  }
+
+  .hover-glow-red {
+    @apply transition-shadow duration-300 hover:shadow-glow-red;
+  }
+
+  /* ============================================
+     IMAGE EFFECTS
+     ============================================ */
+  .img-zoom {
+    @apply overflow-hidden;
+  }
+
+  .img-zoom img {
+    @apply transition-transform duration-500 ease-out;
+  }
+
+  .img-zoom:hover img {
+    @apply scale-110;
+  }
+
+  /* ============================================
+     BADGE STYLES
+     ============================================ */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 text-xs font-bold uppercase tracking-wider;
+  }
+
+  .badge-sale {
+    @apply badge bg-accent text-white;
+  }
+
+  .badge-new {
+    @apply badge bg-accent-cyan text-black;
+  }
+
+  .badge-hot {
+    @apply badge bg-accent-lime text-black;
+  }
+
+  /* ============================================
+     LINK UNDERLINE ANIMATION
+     ============================================ */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* ============================================
+     STAGGER ANIMATIONS
+     ============================================ */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+  .stagger-7 { animation-delay: 0.7s; }
+  .stagger-8 { animation-delay: 0.8s; }
+
+  /* ============================================
+     NOISE TEXTURE OVERLAY
+     ============================================ */
+  .noise-overlay::before {
+    content: '';
+    @apply absolute inset-0 bg-noise opacity-[0.03] pointer-events-none;
+  }
+
+  /* ============================================
+     SPLIT TEXT EFFECT
+     ============================================ */
+  .split-text {
+    overflow: hidden;
+  }
+
+  .split-text span {
+    display: inline-block;
+    transform: translateY(100%);
+    animation: splitTextReveal 0.6s ease forwards;
+  }
+
+  @keyframes splitTextReveal {
+    to { transform: translateY(0); }
+  }
+
+  /* ============================================
+     PRODUCT CARD QUICK VIEW
+     ============================================ */
+  .product-card-overlay {
+    @apply absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex items-center justify-center;
+  }
+
+  .card-product:hover .product-card-overlay {
+    @apply opacity-100;
+  }
+
+  /* ============================================
+     LOADING SKELETON
+     ============================================ */
+  .skeleton {
+    @apply bg-primary-800 animate-pulse rounded;
+  }
+
+  /* ============================================
+     INPUT STYLES
+     ============================================ */
+  .input {
+    @apply w-full bg-surface-light border border-primary-700 text-white px-4 py-3
+           focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent
+           placeholder:text-primary-500 transition-all duration-200;
+  }
+
+  .input-error {
+    @apply input border-accent ring-1 ring-accent;
+  }
+
+  /* ============================================
+     CAROUSEL
+     ============================================ */
+  .carousel-btn {
+    @apply w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/70 hover:text-white hover:border-white transition-all duration-200 hover:bg-white/10;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Perspective for 3D effects */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Clip path utilities */
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .clip-diagonal-reverse {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  }
+}
