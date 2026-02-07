@@ -12,7 +12,6 @@ FROM node:20-alpine
 RUN addgroup -g 1001 -S appgroup && adduser -S appuser -u 1001 -G appgroup
 WORKDIR /app
 COPY --from=build --chown=appuser:appgroup /app/node_modules node_modules
-COPY --from=build --chown=appuser:appgroup /app/apps/frontend/node_modules apps/frontend/node_modules
 COPY --from=build --chown=appuser:appgroup /app/apps/frontend/dist apps/frontend/dist
 COPY --from=build --chown=appuser:appgroup /app/apps/frontend/package.json apps/frontend/package.json
 USER appuser
