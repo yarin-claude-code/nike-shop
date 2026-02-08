@@ -21,21 +21,21 @@ export default function CartSummary(): JSX.Element {
 
   return (
     <div className="card p-6">
-      <h2 className="text-lg font-bold text-white uppercase tracking-wider mb-6">
+      <h2 className="text-lg font-bold text-primary uppercase tracking-wider mb-6">
         Order Summary
       </h2>
 
       {/* Free Shipping Progress */}
       {freeShippingRemaining > 0 && (
-        <div className="mb-6 p-4 bg-accent/10 border border-accent/20">
-          <p className="text-sm text-white">
+        <div className="mb-6 p-4 bg-accent/5 border border-accent/10 rounded-xl">
+          <p className="text-sm text-primary">
             Add{' '}
             <span className="font-bold text-accent">${freeShippingRemaining.toFixed(2)}</span>{' '}
             more for FREE shipping!
           </p>
-          <div className="mt-3 h-1 bg-primary-800 overflow-hidden">
+          <div className="mt-3 h-1 bg-primary-200 overflow-hidden rounded-full">
             <div
-              className="h-full bg-accent transition-all duration-500"
+              className="h-full bg-accent transition-all duration-500 rounded-full"
               style={{ width: `${shippingProgress}%` }}
             />
           </div>
@@ -43,8 +43,8 @@ export default function CartSummary(): JSX.Element {
       )}
 
       {freeShippingRemaining <= 0 && (
-        <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20">
-          <p className="text-sm text-green-400 font-medium flex items-center gap-2">
+        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+          <p className="text-sm text-green-700 font-medium flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
@@ -56,29 +56,29 @@ export default function CartSummary(): JSX.Element {
       {/* Totals */}
       <div className="space-y-4 text-sm">
         <div className="flex justify-between">
-          <span className="text-white/50">Subtotal</span>
-          <span className="font-medium text-white">
+          <span className="text-primary-400">Subtotal</span>
+          <span className="font-medium text-primary">
             ${subtotal.toFixed(2)}
           </span>
         </div>
         <div className="flex justify-between">
-          <span className="text-white/50">Shipping</span>
-          <span className="font-medium text-white">
+          <span className="text-primary-400">Shipping</span>
+          <span className="font-medium text-primary">
             {shipping === 0 ? (
-              <span className="text-green-400">FREE</span>
+              <span className="text-green-600">FREE</span>
             ) : (
               `$${shipping.toFixed(2)}`
             )}
           </span>
         </div>
         <div className="flex justify-between">
-          <span className="text-white/50">Estimated Tax</span>
-          <span className="font-medium text-white">${tax.toFixed(2)}</span>
+          <span className="text-primary-400">Estimated Tax</span>
+          <span className="font-medium text-primary">${tax.toFixed(2)}</span>
         </div>
-        <div className="border-t border-primary-700 pt-4 mt-4">
+        <div className="border-t border-primary-200 pt-4 mt-4">
           <div className="flex justify-between">
-            <span className="text-lg font-bold text-white">Total</span>
-            <span className="text-lg font-black text-white">
+            <span className="text-lg font-bold text-primary">Total</span>
+            <span className="text-lg font-black text-primary">
               ${total.toFixed(2)}
             </span>
           </div>
@@ -94,13 +94,13 @@ export default function CartSummary(): JSX.Element {
       </Link>
 
       {/* Payment Icons */}
-      <div className="mt-6 pt-6 border-t border-primary-800">
-        <p className="text-xs text-white/30 text-center mb-3 uppercase tracking-wider">Secure Payment</p>
+      <div className="mt-6 pt-6 border-t border-primary-200">
+        <p className="text-xs text-primary-300 text-center mb-3 uppercase tracking-wider">Secure Payment</p>
         <div className="flex justify-center gap-4">
-          <span className="text-white/30 text-sm font-bold">VISA</span>
-          <span className="text-white/30 text-sm font-bold">MC</span>
-          <span className="text-white/30 text-sm font-bold">PAYPAL</span>
-          <span className="text-white/30 text-sm font-bold">APPLEPAY</span>
+          <span className="text-primary-300 text-sm font-bold">VISA</span>
+          <span className="text-primary-300 text-sm font-bold">MC</span>
+          <span className="text-primary-300 text-sm font-bold">PAYPAL</span>
+          <span className="text-primary-300 text-sm font-bold">APPLEPAY</span>
         </div>
       </div>
     </div>

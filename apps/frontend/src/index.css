@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 /* ============================================
-   NIKE/ADIDAS-INSPIRED DESIGN SYSTEM
-   Bold. Minimal. High-Impact.
+   WARM BEIGE/CREAM LUXURY DESIGN SYSTEM
+   Clean. Minimal. Luxurious.
    ============================================ */
 
 @layer base {
@@ -14,13 +14,13 @@
   }
 
   body {
-    @apply bg-black text-white antialiased;
+    @apply bg-surface text-primary antialiased;
     overflow-x: hidden;
   }
 
   /* Selection color */
   ::selection {
-    @apply bg-accent text-white;
+    @apply bg-accent/20 text-primary;
   }
 
   /* Smooth scrollbar */
@@ -33,43 +33,43 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary-700 rounded-full hover:bg-primary-600;
+    @apply bg-primary-300 rounded-full hover:bg-primary-400;
   }
 }
 
 @layer components {
   /* ============================================
-     BUTTONS - Nike-inspired bold CTAs
+     BUTTONS - Minimal luxury CTAs
      ============================================ */
   .btn {
     @apply inline-flex items-center justify-center font-bold uppercase tracking-wider text-sm transition-all duration-300;
   }
 
   .btn-primary {
-    @apply btn bg-white text-black px-8 py-4 hover:bg-primary-200 active:scale-95;
+    @apply btn bg-primary text-white px-8 py-4 hover:bg-primary-800 active:scale-95 rounded-full;
   }
 
   .btn-accent {
-    @apply btn bg-accent text-white px-8 py-4 hover:bg-accent-600 active:scale-95 shadow-glow-red;
+    @apply btn bg-accent text-white px-8 py-4 hover:bg-accent-600 active:scale-95 rounded-full shadow-warm;
   }
 
   .btn-outline {
-    @apply btn border-2 border-white text-white px-8 py-4 hover:bg-white hover:text-black active:scale-95;
+    @apply btn border-2 border-primary text-primary px-8 py-4 hover:bg-primary hover:text-white active:scale-95 rounded-full;
   }
 
   .btn-ghost {
-    @apply btn text-white px-6 py-3 hover:bg-white/10 active:scale-95;
+    @apply btn text-primary px-6 py-3 hover:bg-primary/5 active:scale-95 rounded-full;
   }
 
   /* ============================================
-     CARDS - Elevated surfaces
+     CARDS - Light elevated surfaces
      ============================================ */
   .card {
-    @apply bg-surface-light rounded-none border border-primary-800 transition-all duration-300;
+    @apply bg-white rounded-2xl border border-primary-200 transition-all duration-300 shadow-soft;
   }
 
   .card-hover {
-    @apply card hover:border-white hover:shadow-glow-white hover:-translate-y-1;
+    @apply card hover:border-primary-300 hover:shadow-soft-md hover:-translate-y-1;
   }
 
   .card-product {
@@ -77,23 +77,23 @@
   }
 
   /* ============================================
-     TYPOGRAPHY - Bold display text
+     TYPOGRAPHY
      ============================================ */
   .text-gradient {
-    @apply bg-gradient-to-r from-white via-primary-200 to-white bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-primary-700 to-primary bg-clip-text text-transparent;
   }
 
   .text-gradient-accent {
-    @apply bg-gradient-to-r from-accent via-accent-cyan to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-accent via-accent-400 to-accent bg-clip-text text-transparent;
   }
 
   .text-outline {
-    -webkit-text-stroke: 2px white;
+    -webkit-text-stroke: 2px rgba(44, 37, 32, 0.1);
     color: transparent;
   }
 
   /* ============================================
-     MARQUEE - Scrolling text ticker
+     MARQUEE
      ============================================ */
   .marquee-container {
     @apply overflow-hidden whitespace-nowrap;
@@ -135,24 +135,14 @@
   }
 
   /* ============================================
-     GRID PATTERNS
-     ============================================ */
-  .grid-pattern {
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  /* ============================================
-     GLASS MORPHISM
+     GLASS MORPHISM - Warm tones
      ============================================ */
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+    @apply bg-white/60 backdrop-blur-lg border border-primary-200/50;
   }
 
   .glass-dark {
-    @apply bg-black/50 backdrop-blur-lg border border-white/5;
+    @apply bg-primary-900/50 backdrop-blur-lg border border-primary-700/50;
   }
 
   /* ============================================
@@ -164,14 +154,6 @@
 
   .hover-scale {
     @apply transition-transform duration-300 hover:scale-105;
-  }
-
-  .hover-glow {
-    @apply transition-shadow duration-300 hover:shadow-glow-white;
-  }
-
-  .hover-glow-red {
-    @apply transition-shadow duration-300 hover:shadow-glow-red;
   }
 
   /* ============================================
@@ -193,19 +175,19 @@
      BADGE STYLES
      ============================================ */
   .badge {
-    @apply inline-flex items-center px-3 py-1 text-xs font-bold uppercase tracking-wider;
+    @apply inline-flex items-center px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full;
   }
 
   .badge-sale {
-    @apply badge bg-accent text-white;
+    @apply badge bg-red-500 text-white;
   }
 
   .badge-new {
-    @apply badge bg-accent-cyan text-black;
+    @apply badge bg-accent text-white;
   }
 
   .badge-hot {
-    @apply badge bg-accent-lime text-black;
+    @apply badge bg-amber-500 text-white;
   }
 
   /* ============================================
@@ -237,35 +219,10 @@
   .stagger-8 { animation-delay: 0.8s; }
 
   /* ============================================
-     NOISE TEXTURE OVERLAY
-     ============================================ */
-  .noise-overlay::before {
-    content: '';
-    @apply absolute inset-0 bg-noise opacity-[0.03] pointer-events-none;
-  }
-
-  /* ============================================
-     SPLIT TEXT EFFECT
-     ============================================ */
-  .split-text {
-    overflow: hidden;
-  }
-
-  .split-text span {
-    display: inline-block;
-    transform: translateY(100%);
-    animation: splitTextReveal 0.6s ease forwards;
-  }
-
-  @keyframes splitTextReveal {
-    to { transform: translateY(0); }
-  }
-
-  /* ============================================
      PRODUCT CARD QUICK VIEW
      ============================================ */
   .product-card-overlay {
-    @apply absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex items-center justify-center;
+    @apply absolute inset-0 bg-primary/40 opacity-0 transition-opacity duration-300 flex items-center justify-center rounded-xl;
   }
 
   .card-product:hover .product-card-overlay {
@@ -276,27 +233,27 @@
      LOADING SKELETON
      ============================================ */
   .skeleton {
-    @apply bg-primary-800 animate-pulse rounded;
+    @apply bg-primary-200 animate-pulse rounded-lg;
   }
 
   /* ============================================
      INPUT STYLES
      ============================================ */
   .input {
-    @apply w-full bg-surface-light border border-primary-700 text-white px-4 py-3
+    @apply w-full bg-white border border-primary-200 text-primary px-4 py-3 rounded-lg
            focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent
-           placeholder:text-primary-500 transition-all duration-200;
+           placeholder:text-primary-400 transition-all duration-200;
   }
 
   .input-error {
-    @apply input border-accent ring-1 ring-accent;
+    @apply input border-red-400 ring-1 ring-red-400;
   }
 
   /* ============================================
      CAROUSEL
      ============================================ */
   .carousel-btn {
-    @apply w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/70 hover:text-white hover:border-white transition-all duration-200 hover:bg-white/10;
+    @apply w-10 h-10 flex items-center justify-center rounded-full border border-primary-300 text-primary-500 hover:text-primary hover:border-primary hover:bg-primary/5 transition-all duration-200;
   }
 }
 

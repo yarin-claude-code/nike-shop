@@ -21,7 +21,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps): J
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       {/* Image Container */}
-      <div className="relative aspect-square bg-surface overflow-hidden">
+      <div className="relative aspect-square bg-primary-50 overflow-hidden rounded-t-2xl">
         <img
           src={primaryImage?.url || '/placeholder-shoe.jpg'}
           alt={product.name}
@@ -43,10 +43,10 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps): J
         {/* Quick Actions Overlay */}
         <div className="product-card-overlay">
           <div className="flex flex-col items-center gap-3">
-            <span className="btn-primary text-xs px-6 py-3">
+            <span className="bg-white text-primary text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-full">
               Quick View
             </span>
-            <span className="text-white/70 text-xs uppercase tracking-wider">
+            <span className="text-white/90 text-xs uppercase tracking-wider">
               Click to explore
             </span>
           </div>
@@ -67,7 +67,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps): J
               return (
                 <div
                   key={i}
-                  className="w-3 h-3 rounded-full border border-white/30"
+                  className="w-3 h-3 rounded-full border border-white/50 shadow-sm"
                   style={{ backgroundColor: colorMap[color.toLowerCase()] || '#888' }}
                 />
               );
@@ -78,10 +78,10 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps): J
 
       {/* Product Info */}
       <div className="p-4">
-        <p className="text-xs text-white/50 uppercase tracking-wider mb-1">
+        <p className="text-xs text-primary-400 uppercase tracking-wider mb-1">
           {product.brand.name}
         </p>
-        <h3 className="font-bold text-white mb-2 group-hover:text-accent transition-colors line-clamp-1">
+        <h3 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors line-clamp-1">
           {product.name}
         </h3>
         <div className="flex items-center gap-3">
@@ -90,12 +90,12 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps): J
               <span className="font-black text-lg text-accent">
                 ${product.salePrice?.toFixed(2)}
               </span>
-              <span className="text-sm text-white/40 line-through">
+              <span className="text-sm text-primary-400 line-through">
                 ${product.price.toFixed(2)}
               </span>
             </>
           ) : (
-            <span className="font-black text-lg text-white">
+            <span className="font-black text-lg text-primary">
               ${product.price.toFixed(2)}
             </span>
           )}

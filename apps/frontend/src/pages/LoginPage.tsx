@@ -24,11 +24,11 @@ export default function LoginPage(): JSX.Element {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center py-12 px-4">
+    <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 bg-surface">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-slate-900">Welcome Back</h1>
-          <p className="mt-2 text-slate-600">
+          <h1 className="text-3xl font-bold text-primary">Welcome Back</h1>
+          <p className="mt-2 text-primary-400">
             Sign in to your account to continue
           </p>
         </div>
@@ -44,7 +44,7 @@ export default function LoginPage(): JSX.Element {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-slate-700 mb-2"
+                className="block text-sm font-medium text-primary-600 mb-2"
               >
                 Email Address
               </label>
@@ -54,7 +54,7 @@ export default function LoginPage(): JSX.Element {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 border border-slate-200 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-shadow"
+                className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-shadow"
                 placeholder="you@example.com"
               />
             </div>
@@ -63,13 +63,13 @@ export default function LoginPage(): JSX.Element {
               <div className="flex justify-between items-center mb-2">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-slate-700"
+                  className="block text-sm font-medium text-primary-600"
                 >
                   Password
                 </label>
                 <Link
                   to="/forgot-password"
-                  className="text-sm text-orange-500 hover:underline"
+                  className="text-sm text-accent hover:underline"
                 >
                   Forgot password?
                 </Link>
@@ -80,7 +80,7 @@ export default function LoginPage(): JSX.Element {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-3 border border-slate-200 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-shadow"
+                className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-shadow"
                 placeholder="Enter your password"
               />
             </div>
@@ -88,18 +88,18 @@ export default function LoginPage(): JSX.Element {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-slate-900 hover:bg-slate-800 disabled:bg-slate-400 text-white font-medium py-3 px-4 rounded-md transition-colors"
+              className="w-full bg-primary hover:bg-primary-800 disabled:bg-primary-300 text-white font-medium py-3 px-4 rounded-lg transition-colors"
             >
               {isLoading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-primary-400">
               Don't have an account?{' '}
               <Link
                 to="/register"
-                className="text-orange-500 font-medium hover:underline"
+                className="text-accent font-medium hover:underline"
               >
                 Create one
               </Link>

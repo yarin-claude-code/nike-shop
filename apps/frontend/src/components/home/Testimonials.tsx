@@ -18,14 +18,14 @@ const testimonials = [
 
 export default function Testimonials(): JSX.Element {
   return (
-    <section id="testimonial" className="bg-surface py-20">
+    <section id="testimonial" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-black tracking-tight">
-            <span className="text-white">What Our </span>
+            <span className="text-primary">What Our </span>
             <span className="text-accent">Customer</span>
-            <span className="text-white"> Says</span>
+            <span className="text-primary"> Says</span>
           </h2>
         </div>
 
@@ -34,17 +34,17 @@ export default function Testimonials(): JSX.Element {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="bg-surface-light rounded-2xl p-8 flex flex-col items-center text-center"
+              className="bg-surface rounded-3xl p-8 flex flex-col items-center text-center shadow-soft border border-primary-100"
             >
               <img
                 src={testimonial.avatar}
                 alt={testimonial.name}
-                className="w-16 h-16 rounded-full object-cover mb-6 border-2 border-accent/30"
+                className="w-16 h-16 rounded-full object-cover mb-6 border-2 border-primary-200"
               />
-              <p className="text-white/60 text-sm leading-relaxed mb-6">
+              <p className="text-primary-500 text-sm leading-relaxed mb-6">
                 "{testimonial.text}"
               </p>
-              <p className="text-white font-bold text-sm">{testimonial.name}</p>
+              <p className="text-primary font-bold text-sm">{testimonial.name}</p>
             </div>
           ))}
         </div>

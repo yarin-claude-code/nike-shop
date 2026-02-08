@@ -57,7 +57,6 @@ export default function ProductsPage(): JSX.Element {
       filteredList = filteredList.filter((p) => p.isFeatured);
     }
 
-    // Sort
     switch (sortBy) {
       case 'price-low':
         filteredList.sort((a, b) => (a.salePrice || a.price) - (b.salePrice || b.price));
@@ -94,15 +93,14 @@ export default function ProductsPage(): JSX.Element {
   const isLoading = productsLoading || brandsLoading || categoriesLoading;
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-surface">
       {/* Hero Banner */}
-      <section className="relative py-20 bg-surface overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+      <section className="relative py-20 bg-white overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="text-accent text-sm font-bold uppercase tracking-wider">
             {filteredProducts.length} Products
           </span>
-          <h1 className="text-display-md md:text-display-lg font-black text-white tracking-tighter mt-2">
+          <h1 className="text-display-md md:text-display-lg font-black text-primary tracking-tighter mt-2">
             {pageTitle}
           </h1>
         </div>
@@ -110,12 +108,10 @@ export default function ProductsPage(): JSX.Element {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Filters Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-8 border-b border-primary-800">
-          {/* Filter pills */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-8 border-b border-primary-200">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-white/50 text-sm font-medium mr-2">Filter:</span>
+            <span className="text-primary-400 text-sm font-medium mr-2">Filter:</span>
 
-            {/* Category filter */}
             <select
               value={categoryFilter || ''}
               onChange={(e) => {
@@ -127,7 +123,7 @@ export default function ProductsPage(): JSX.Element {
                 }
                 setSearchParams(params);
               }}
-              className="bg-surface-light border border-primary-700 text-white text-sm px-4 py-2 focus:outline-none focus:border-accent"
+              className="bg-white border border-primary-200 text-primary text-sm px-4 py-2 rounded-lg focus:outline-none focus:border-accent"
               disabled={categoriesLoading}
             >
               <option value="">All Categories</option>
@@ -138,7 +134,6 @@ export default function ProductsPage(): JSX.Element {
               ))}
             </select>
 
-            {/* Brand filter */}
             <select
               value={brandFilter || ''}
               onChange={(e) => {
@@ -150,7 +145,7 @@ export default function ProductsPage(): JSX.Element {
                 }
                 setSearchParams(params);
               }}
-              className="bg-surface-light border border-primary-700 text-white text-sm px-4 py-2 focus:outline-none focus:border-accent"
+              className="bg-white border border-primary-200 text-primary text-sm px-4 py-2 rounded-lg focus:outline-none focus:border-accent"
               disabled={brandsLoading}
             >
               <option value="">All Brands</option>
@@ -161,7 +156,6 @@ export default function ProductsPage(): JSX.Element {
               ))}
             </select>
 
-            {/* Sale toggle */}
             <button
               onClick={() => {
                 const params = new URLSearchParams(searchParams);
@@ -172,10 +166,10 @@ export default function ProductsPage(): JSX.Element {
                 }
                 setSearchParams(params);
               }}
-              className={`px-4 py-2 text-sm font-bold uppercase tracking-wider border transition-colors ${
+              className={`px-4 py-2 text-sm font-bold uppercase tracking-wider border rounded-full transition-colors ${
                 saleFilter
                   ? 'bg-accent border-accent text-white'
-                  : 'border-primary-700 text-white/70 hover:border-white hover:text-white'
+                  : 'border-primary-300 text-primary-500 hover:border-primary hover:text-primary'
               }`}
             >
               On Sale
@@ -184,20 +178,19 @@ export default function ProductsPage(): JSX.Element {
             {activeFilterCount > 0 && (
               <button
                 onClick={clearFilters}
-                className="px-4 py-2 text-sm text-white/50 hover:text-white transition-colors"
+                className="px-4 py-2 text-sm text-primary-400 hover:text-primary transition-colors"
               >
                 Clear All
               </button>
             )}
           </div>
 
-          {/* Sort */}
           <div className="flex items-center gap-2">
-            <span className="text-white/50 text-sm font-medium">Sort:</span>
+            <span className="text-primary-400 text-sm font-medium">Sort:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-surface-light border border-primary-700 text-white text-sm px-4 py-2 focus:outline-none focus:border-accent"
+              className="bg-white border border-primary-200 text-primary text-sm px-4 py-2 rounded-lg focus:outline-none focus:border-accent"
             >
               <option value="featured">Featured</option>
               <option value="price-low">Price: Low to High</option>
@@ -212,16 +205,15 @@ export default function ProductsPage(): JSX.Element {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {[...Array(8)].map((_, i) => (
               <div key={i} className="animate-pulse">
-                <div className="aspect-square skeleton bg-surface-light mb-4" />
-                <div className="h-4 skeleton bg-surface-light mb-2 w-3/4" />
-                <div className="h-4 skeleton bg-surface-light w-1/2" />
+                <div className="aspect-square skeleton bg-primary-100 mb-4 rounded-2xl" />
+                <div className="h-4 skeleton bg-primary-100 mb-2 w-3/4" />
+                <div className="h-4 skeleton bg-primary-100 w-1/2" />
               </div>
             ))}
           </div>
         ) : filteredProducts.length === 0 ? (
           <div className="text-center py-20">
-            <div className="text-6xl mb-4 opacity-20">😕</div>
-            <p className="text-white/50 text-lg mb-4">No products found</p>
+            <p className="text-primary-400 text-lg mb-4">No products found</p>
             <button onClick={clearFilters} className="btn-outline">
               Clear Filters
             </button>

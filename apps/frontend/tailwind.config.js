@@ -7,48 +7,44 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Nike/Adidas-inspired bold palette
+        // Warm beige/cream luxury palette
         primary: {
-          DEFAULT: '#000000',
-          50: '#fafafa',
-          100: '#f5f5f5',
-          200: '#e5e5e5',
-          300: '#d4d4d4',
-          400: '#a3a3a3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
-          800: '#262626',
-          900: '#171717',
-          950: '#0a0a0a',
+          DEFAULT: '#2C2520',
+          50: '#FAF8F5',
+          100: '#F5F0EB',
+          200: '#E8DFD6',
+          300: '#D4C5B2',
+          400: '#B8A898',
+          500: '#9C8B7A',
+          600: '#7A6B5D',
+          700: '#5C4F44',
+          800: '#3D352E',
+          900: '#2C2520',
+          950: '#1A1714',
         },
         accent: {
-          DEFAULT: '#FF3B30', // Electric red (Nike-inspired)
-          50: '#fff1f0',
-          100: '#ffe0de',
-          200: '#ffc7c3',
-          300: '#ffa099',
-          400: '#ff6961',
-          500: '#FF3B30',
-          600: '#ed2115',
-          700: '#c8170d',
-          800: '#a5170f',
-          900: '#881a14',
+          DEFAULT: '#8B7355',
+          50: '#FAF7F3',
+          100: '#F0E8DD',
+          200: '#E0D0BB',
+          300: '#CDB494',
+          400: '#B8996E',
+          500: '#8B7355',
+          600: '#725E45',
+          700: '#5A4A37',
+          800: '#43382A',
+          900: '#2F271E',
         },
-        'accent-neon': '#FF0040',    // Neon pink-red for highlights
-        'accent-cyan': '#00D4FF',    // Electric cyan for variety
-        'accent-lime': '#CCFF00',    // Neon lime for CTAs
         surface: {
-          dark: '#0A0A0A',
-          DEFAULT: '#111111',
-          light: '#1A1A1A',
-          elevated: '#222222',
+          dark: '#EDE6DD',
+          DEFAULT: '#F5F0EB',
+          light: '#FAF8F5',
+          elevated: '#FFFFFF',
         },
       },
       fontFamily: {
-        // Bold condensed for Nike/Adidas style
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Inter', 'system-ui', 'sans-serif'], // Will use font-weight for impact
+        display: ['Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'display-xl': ['8rem', { lineHeight: '0.9', letterSpacing: '-0.04em', fontWeight: '900' }],
@@ -67,9 +63,6 @@ export default {
         'marquee': 'marquee 30s linear infinite',
         'marquee-slow': 'marquee 60s linear infinite',
         'float': 'float 6s ease-in-out infinite',
-        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
-        'text-shimmer': 'textShimmer 2s ease-in-out infinite',
-        'gradient-shift': 'gradientShift 8s ease infinite',
       },
       keyframes: {
         fadeIn: {
@@ -110,30 +103,16 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
         },
-        pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(255, 59, 48, 0.5)' },
-          '50%': { boxShadow: '0 0 40px rgba(255, 59, 48, 0.8)' },
-        },
-        textShimmer: {
-          '0%': { backgroundPosition: '-200% center' },
-          '100%': { backgroundPosition: '200% center' },
-        },
-        gradientShift: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E\")",
       },
       boxShadow: {
-        'glow-red': '0 0 30px rgba(255, 59, 48, 0.4)',
-        'glow-cyan': '0 0 30px rgba(0, 212, 255, 0.4)',
-        'glow-white': '0 0 30px rgba(255, 255, 255, 0.2)',
-        'brutal': '4px 4px 0 0 #000',
-        'brutal-lg': '8px 8px 0 0 #000',
+        'soft': '0 2px 20px rgba(44, 37, 32, 0.08)',
+        'soft-md': '0 4px 30px rgba(44, 37, 32, 0.12)',
+        'soft-lg': '0 8px 40px rgba(44, 37, 32, 0.16)',
+        'warm': '0 4px 20px rgba(139, 115, 85, 0.15)',
       },
       transitionTimingFunction: {
         'bounce-in': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',

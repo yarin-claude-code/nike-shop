@@ -32,7 +32,7 @@ export default function ProductImageViewer({
   return (
     <div className="relative w-full">
       {/* Main Image Display */}
-      <div className="aspect-square bg-surface border border-primary-800 overflow-hidden relative">
+      <div className="aspect-square bg-white border border-primary-200 overflow-hidden relative rounded-2xl">
         {!imageLoaded && (
           <div className="absolute inset-0 skeleton" />
         )}
@@ -53,10 +53,10 @@ export default function ProductImageViewer({
             <button
               key={index}
               onClick={() => handleImageChange(index)}
-              className={`flex-shrink-0 w-20 h-20 bg-surface border transition-all ${
+              className={`flex-shrink-0 w-20 h-20 bg-white border rounded-xl transition-all overflow-hidden ${
                 selectedImage === index
-                  ? 'border-accent ring-2 ring-accent/50'
-                  : 'border-primary-700 hover:border-primary-600'
+                  ? 'border-accent ring-2 ring-accent/30'
+                  : 'border-primary-200 hover:border-primary-300'
               }`}
             >
               <img
@@ -71,17 +71,17 @@ export default function ProductImageViewer({
 
       {/* Color Selector */}
       {colors.length > 1 && (
-        <div className="flex items-center gap-3 mt-4 p-3 bg-surface-elevated border border-primary-700">
-          <span className="text-xs text-white/50 uppercase tracking-wider">Color</span>
+        <div className="flex items-center gap-3 mt-4 p-3 bg-white border border-primary-200 rounded-xl">
+          <span className="text-xs text-primary-400 uppercase tracking-wider">Color</span>
           <div className="flex gap-2">
             {colors.map((color) => (
               <button
                 key={color}
                 onClick={() => handleColorChange(color)}
-                className={`w-10 h-10 transition-all border-2 ${
+                className={`w-10 h-10 rounded-full transition-all border-2 ${
                   selectedColor === color
-                    ? 'border-accent ring-2 ring-accent/50 scale-110'
-                    : 'border-primary-700 hover:border-primary-600 hover:scale-105'
+                    ? 'border-accent ring-2 ring-accent/30 scale-110'
+                    : 'border-primary-200 hover:border-primary-300 hover:scale-105'
                 }`}
                 style={{ backgroundColor: color }}
                 aria-label={`Select ${color} color`}
@@ -93,7 +93,7 @@ export default function ProductImageViewer({
 
       {/* Image Counter */}
       {images.length > 1 && (
-        <div className="absolute top-4 right-4 px-3 py-1 bg-black/70 backdrop-blur-sm border border-white/10 text-xs text-white/70 uppercase tracking-wider">
+        <div className="absolute top-4 right-4 px-3 py-1 bg-white/80 backdrop-blur-sm border border-primary-200 rounded-full text-xs text-primary-500 uppercase tracking-wider">
           {selectedImage + 1} / {images.length}
         </div>
       )}
