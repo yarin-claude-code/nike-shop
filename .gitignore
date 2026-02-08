@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Testing
+coverage/
+
+# Turbo
+.turbo/
+
+# Project workspace (temp files)
+.workspace/
+CLAUDE.local.md
+*.tmp
+
+# Claude local settings
+.claude/settings.local.json
+
+# Lock files in workspaces (root lock file is sufficient)
+apps/*/package-lock.json
