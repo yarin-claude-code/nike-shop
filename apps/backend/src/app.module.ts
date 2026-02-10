@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { join } from 'path';
 import { ProductsModule } from './products/products.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
@@ -13,20 +14,22 @@ import { OrdersModule } from './orders/orders.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env',
+      envFilePath: ['.env', '../../.env'],
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host: configService.get('DB_HOST', 'localhost'),
-        port: configService.get<number>('DB_PORT', 5432),
-        username: configService.get('DB_USERNAME', 'postgres'),
-        password: configService.get('DB_PASSWORD', 'postgres'),
-        database: configService.get('DB_DATABASE', 'tonys_shoes'),
+        host: configService.get('POSTGRES_HOST', 'localhost'),
+        port: configService.get<number>('POSTGRES_PORT', 5432),
+        username: configService.get('POSTGRES_USERNAME', 'postgres'),
+        password: configService.get('POSTGRES_PASSWORD', 'postgres'),
+        database: configService.get('POSTGRES_DATABASE', 'tonys_shoes'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: configService.get('NODE_ENV') === 'development',
+        migrations: [join(__dirname, 'migrations', '*.js')],
+        migrationsRun: false,
+        synchronize: false,
         logging: configService.get('NODE_ENV') === 'development',
       }),
     }),
