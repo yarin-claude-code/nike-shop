@@ -31,10 +31,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Product variants track size, color, stock level, and price independently per variant
   4. Seed data contains real shoe products from Nike, Adidas, Puma, and On Cloud with authentic product images
   5. Migration workflow is established (synchronize:false, all schema changes via migrations)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 01-01-PLAN.md — Migration infrastructure (DataSource config, disable synchronize, CLI scripts)
+- [ ] 01-02-PLAN.md — Seeding infrastructure (factories, seeders, real multi-brand product data)
 
 ### Phase 2: Backend API Core
 **Goal**: Backend API endpoints return products with correct data relationships and support filtering and search
