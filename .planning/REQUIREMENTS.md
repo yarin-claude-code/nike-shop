@@ -110,13 +110,51 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (Populated during roadmap creation) | | |
+| DB-01 | Phase 1 | Pending |
+| DB-02 | Phase 1 | Pending |
+| DB-03 | Phase 1 | Pending |
+| DB-04 | Phase 1 | Pending |
+| DB-05 | Phase 1 | Pending |
+| API-01 | Phase 2 | Pending |
+| API-02 | Phase 2 | Pending |
+| API-03 | Phase 2 | Pending |
+| API-04 | Phase 2 | Pending |
+| API-06 | Phase 2 | Pending |
+| UX-01 | Phase 3 | Pending |
+| UX-02 | Phase 3 | Pending |
+| UX-04 | Phase 3 | Pending |
+| UX-05 | Phase 3 | Pending |
+| FE-01 | Phase 3 | Pending |
+| FE-03 | Phase 3 | Pending |
+| FE-04 | Phase 3 | Pending |
+| CAT-01 | Phase 4 | Pending |
+| CAT-02 | Phase 4 | Pending |
+| CAT-03 | Phase 4 | Pending |
+| CAT-04 | Phase 4 | Pending |
+| CAT-05 | Phase 4 | Pending |
+| CAT-07 | Phase 4 | Pending |
+| CAT-08 | Phase 4 | Pending |
+| CAT-09 | Phase 4 | Pending |
+| IMG-01 | Phase 4 | Pending |
+| IMG-02 | Phase 4 | Pending |
+| IMG-03 | Phase 4 | Pending |
+| IMG-04 | Phase 4 | Pending |
+| FE-02 | Phase 4 | Pending |
+| UX-03 | Phase 4 | Pending |
+| UX-06 | Phase 4 | Pending |
+| CAT-06 | Phase 5 | Pending |
+| API-05 | Phase 6 | Pending |
+| REV-01 | Phase 6 | Pending |
+| REV-02 | Phase 6 | Pending |
+| REV-03 | Phase 6 | Pending |
+| REV-04 | Phase 6 | Pending |
 
 **Coverage:**
-- v1 requirements: 30 total
-- Mapped to phases: 0
-- Unmapped: 30
+- v1 requirements: 38 total
+- Mapped to phases: 38
+- Unmapped: 0
+- Coverage: 100%
 
 ---
 *Requirements defined: 2026-02-10*
-*Last updated: 2026-02-10 after initial definition*
+*Last updated: 2026-02-10 after roadmap creation*
