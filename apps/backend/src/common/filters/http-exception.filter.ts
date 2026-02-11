@@ -25,7 +25,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
       if (typeof exceptionResponse === 'string') {
         message = exceptionResponse;
       } else if (typeof exceptionResponse === 'object' && exceptionResponse !== null) {
-        const responseObj = exceptionResponse as Record<string, any>;
+        const responseObj = exceptionResponse as Record<string, unknown>;
         message = responseObj.message || responseObj.error || 'An error occurred';
 
         // If message is an array (validation errors), join them

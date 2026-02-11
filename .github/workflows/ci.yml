@@ -325,15 +325,26 @@ jobs:
   ci-success:
     name: CI Success
     runs-on: ubuntu-latest
-    needs: [build, test-e2e]
+    needs: [lint, typecheck, test-backend, test-frontend, build, test-e2e]
     if: always()
     steps:
       - name: Check all jobs
         run: |
-          if [[ "${{ needs.build.result }}" != "success" ]]; then
-            echo "Build failed"
-            exit 1
-          fi
+          # Required jobs must succeed
+          for job in lint typecheck test_backend test_frontend build; do
+            result="${{ needs.lint.result }}"
+            case "$job" in
+              typecheck) result="${{ needs.typecheck.result }}" ;;
+              test_backend) result="${{ needs.test-backend.result }}" ;;
+              test_frontend) result="${{ needs.test-frontend.result }}" ;;
+              build) result="${{ needs.build.result }}" ;;
+            esac
+            if [[ "$result" != "success" ]]; then
+              echo "$job: $result (expected success)"
+              exit 1
+            fi
+          done
+          # E2E can be skipped (only runs after build)
           if [[ "${{ needs.test-e2e.result }}" != "success" && "${{ needs.test-e2e.result }}" != "skipped" ]]; then
             echo "E2E tests failed"
             exit 1
