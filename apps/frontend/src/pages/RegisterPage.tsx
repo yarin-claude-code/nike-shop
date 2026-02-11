@@ -24,7 +24,6 @@ export default function RegisterPage(): JSX.Element {
     e.preventDefault();
     clearError();
 
-    // Validation
     if (formData.password !== formData.confirmPassword) {
       setValidationError('Passwords do not match');
       return;
@@ -51,11 +50,11 @@ export default function RegisterPage(): JSX.Element {
   const displayError = validationError || error;
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center py-12 px-4">
+    <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 bg-surface">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-slate-900">Create Account</h1>
-          <p className="mt-2 text-slate-600">
+          <h1 className="text-3xl font-bold text-primary">Create Account</h1>
+          <p className="mt-2 text-primary-400">
             Join Tony's for exclusive access to new releases
           </p>
         </div>
@@ -72,7 +71,7 @@ export default function RegisterPage(): JSX.Element {
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-sm font-medium text-slate-700 mb-2"
+                  className="block text-sm font-medium text-primary-600 mb-2"
                 >
                   First Name
                 </label>
@@ -83,13 +82,13 @@ export default function RegisterPage(): JSX.Element {
                   value={formData.firstName}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-200 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none"
                 />
               </div>
               <div>
                 <label
                   htmlFor="lastName"
-                  className="block text-sm font-medium text-slate-700 mb-2"
+                  className="block text-sm font-medium text-primary-600 mb-2"
                 >
                   Last Name
                 </label>
@@ -100,7 +99,7 @@ export default function RegisterPage(): JSX.Element {
                   value={formData.lastName}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-200 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none"
                 />
               </div>
             </div>
@@ -108,7 +107,7 @@ export default function RegisterPage(): JSX.Element {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-slate-700 mb-2"
+                className="block text-sm font-medium text-primary-600 mb-2"
               >
                 Email Address
               </label>
@@ -119,7 +118,7 @@ export default function RegisterPage(): JSX.Element {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-slate-200 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none"
+                className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none"
                 placeholder="you@example.com"
               />
             </div>
@@ -127,7 +126,7 @@ export default function RegisterPage(): JSX.Element {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-slate-700 mb-2"
+                className="block text-sm font-medium text-primary-600 mb-2"
               >
                 Password
               </label>
@@ -139,7 +138,7 @@ export default function RegisterPage(): JSX.Element {
                 onChange={handleChange}
                 required
                 minLength={8}
-                className="w-full px-4 py-3 border border-slate-200 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none"
+                className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none"
                 placeholder="Minimum 8 characters"
               />
             </div>
@@ -147,7 +146,7 @@ export default function RegisterPage(): JSX.Element {
             <div>
               <label
                 htmlFor="confirmPassword"
-                className="block text-sm font-medium text-slate-700 mb-2"
+                className="block text-sm font-medium text-primary-600 mb-2"
               >
                 Confirm Password
               </label>
@@ -158,25 +157,25 @@ export default function RegisterPage(): JSX.Element {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-slate-200 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none"
+                className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none"
               />
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white font-medium py-3 px-4 rounded-md transition-colors"
+              className="w-full bg-accent hover:bg-accent-600 disabled:bg-accent-200 text-white font-medium py-3 px-4 rounded-lg transition-colors"
             >
               {isLoading ? 'Creating account...' : 'Create Account'}
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-primary-400">
               Already have an account?{' '}
               <Link
                 to="/login"
-                className="text-orange-500 font-medium hover:underline"
+                className="text-accent font-medium hover:underline"
               >
                 Sign in
               </Link>

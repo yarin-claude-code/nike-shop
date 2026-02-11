@@ -23,7 +23,7 @@ export default function CartItem({ item }: CartItemProps): JSX.Element {
       {/* Product Image */}
       <Link
         to={`/product/${item.productId}`}
-        className="w-28 h-28 bg-surface overflow-hidden flex-shrink-0 group"
+        className="w-28 h-28 bg-primary-50 overflow-hidden flex-shrink-0 group rounded-xl"
       >
         <img
           src={item.imageUrl || '/placeholder-shoe.jpg'}
@@ -38,15 +38,15 @@ export default function CartItem({ item }: CartItemProps): JSX.Element {
           <div>
             <Link
               to={`/product/${item.productId}`}
-              className="font-bold text-white hover:text-accent transition-colors line-clamp-1"
+              className="font-bold text-primary hover:text-accent transition-colors line-clamp-1"
             >
               {item.productName}
             </Link>
-            <p className="text-sm text-white/50 mt-1">
-              Size: <span className="text-white/70">{item.size}</span> | Color: <span className="text-white/70">{item.color}</span>
+            <p className="text-sm text-primary-400 mt-1">
+              Size: <span className="text-primary-500">{item.size}</span> | Color: <span className="text-primary-500">{item.color}</span>
             </p>
           </div>
-          <p className="font-black text-lg text-white whitespace-nowrap">
+          <p className="font-black text-lg text-primary whitespace-nowrap">
             ${(item.price * item.quantity).toFixed(2)}
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function CartItem({ item }: CartItemProps): JSX.Element {
           />
           <button
             onClick={() => removeItem(item.variantId)}
-            className="text-sm text-white/40 hover:text-accent transition-colors font-medium"
+            className="text-sm text-primary-400 hover:text-red-500 transition-colors font-medium"
           >
             Remove
           </button>

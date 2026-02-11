@@ -23,13 +23,13 @@ const features = [
 
 export default function FeatureProduct(): JSX.Element {
   return (
-    <section className="bg-black py-20">
+    <section className="bg-surface py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12">
-          <span className="text-white/50 text-sm uppercase tracking-wider">Product Details</span>
+          <span className="text-primary-400 text-sm uppercase tracking-wider">Product Details</span>
           <h2 className="text-3xl md:text-4xl font-black tracking-tight mt-2">
-            <span className="text-white">Get to Know Our </span>
+            <span className="text-primary">Get to Know Our </span>
             <span className="text-accent">Feature Product</span>
           </h2>
         </div>
@@ -43,23 +43,23 @@ export default function FeatureProduct(): JSX.Element {
                   {feature.icon}
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-lg mb-1">{feature.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{feature.description}</p>
+                  <h3 className="text-primary font-bold text-lg mb-1">{feature.title}</h3>
+                  <p className="text-primary-500 text-sm leading-relaxed">{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Right - Featured Product Card */}
-          <div className="bg-surface-light rounded-2xl p-6 max-w-sm mx-auto lg:ml-auto">
-            <div className="aspect-square bg-gradient-to-br from-surface to-surface-elevated rounded-xl overflow-hidden mb-4">
+          <div className="bg-white rounded-3xl p-6 max-w-sm mx-auto lg:ml-auto shadow-soft-md border border-primary-100">
+            <div className="aspect-square bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl overflow-hidden mb-4">
               <img
                 src={FEATURE_IMAGE}
                 alt="Featured product"
                 className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="text-white font-bold text-lg">Nike Air Max Pro</h3>
+            <h3 className="text-primary font-bold text-lg">Nike Air Max Pro</h3>
             <p className="text-accent font-black text-xl mt-1">$150.20</p>
           </div>
         </div>

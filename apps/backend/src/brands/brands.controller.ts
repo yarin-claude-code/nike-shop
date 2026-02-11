@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { BrandsService } from './brands.service';
 import { Brand } from './entities/brand.entity';
 
@@ -9,5 +9,10 @@ export class BrandsController {
   @Get()
   async findAll(): Promise<Brand[]> {
     return this.brandsService.findAll();
+  }
+
+  @Get(':slug')
+  async findBySlug(@Param('slug') slug: string): Promise<Brand> {
+    return this.brandsService.findBySlugWithProducts(slug);
   }
 }

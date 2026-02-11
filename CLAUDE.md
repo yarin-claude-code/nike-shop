@@ -173,16 +173,16 @@ Products use regular images stored in the database through the `product_images` 
 
 The homepage is a single-page layout with anchor navigation. Sections in order:
 
-1. **Header** — Nike swoosh logo, nav links (Home, About, Product, Testimonial, Shop), search icon, cart icon, "Contact Us" CTA button
-2. **Hero** — "Summer Collections 2022" headline, subtitle text, "Shop Now" button, 4.9 star rating (120k reviews), large hero shoe image (orange), "Get up to 30% off" promo card
-3. **Popular Products** — Product card carousel (4 visible), each card has: star rating, product name, price, heart/wishlist icon, "Add to Cart" button, left/right carousel arrows
-4. **Promo + About Us** — Split layout: "Get up to 30% off" promo card on left, "We Provide High Quality Shoes" about section on right with description text and "Explore More" button
-5. **Feature Product** — "Get to Know Our Feature Product" section with feature list (Best Quality Shoes, Best Giving Pricing) and highlighted product card (e.g., Nike Watch Series 7i, $150.20)
-6. **Customer Testimonials** — "What Our Customer Says" with customer avatars, review text, and names (e.g., Remington, Thomson Zarki)
-7. **Newsletter** — "Sign Up for Updates & Newsletter" with email input and submit button
-8. **Footer** — Nike logo, columns: Find Product, Get Help, About Us, social media icons, copyright
+1. **Header** — Nike swoosh logo, pill-shaped nav container (HOME, ABOUT US, TRENDING, SHOP, SALES), search + heart + cart icons, "Sign In" link
+2. **Hero** — Large bold "JUST DO IT." headline, giant "NIKE" watermark in light beige, hero shoe image (floating with warm shadow), lifestyle image cards bottom-right, "EXPLORE MORE" outline CTA with arrow, "COMFORT IN EVERY STEP" badge
+3. **Popular Products** — Section title with "Popular" (dark) + "Products" (brown), product cards in row with carousel arrows, each card: white bg, shoe image, heart icon (white circle), star rating, product name, price, "Add to Cart" pill button
+4. **Promo + About Us** — Left "Get up to 30% off" promo card (warm gradient), right "We Provide High Quality Shoes" heading with body text and "Explore More" button (accent outline)
+5. **Feature Product** — "Get to Know Our Feature Product" with bullet features and highlighted product card (white bg, rounded)
+6. **Customer Testimonials** — "What Our Customer Says" with circular avatars, review text in light cards
+7. **Newsletter** — "Sign Up for Updates & Newsletter" heading, email input with accent submit button
+8. **Footer** — Light bg, Nike logo, 3 link columns, social icons, copyright
 
-**Navigation:** All nav links (About, Product, Testimonial) are anchor links scrolling to homepage sections, not separate pages.
+**Navigation:** All nav links scroll to homepage sections. Header uses pill-shaped container with backdrop blur.
 
 ## Design System
 
@@ -196,7 +196,7 @@ See [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) for complete details on:
 
 **Quick Reference:**
 
-- Philosophy: Nike/Adidas-inspired, bold, high-contrast, dark mode first
-- Primary accent: #FF3B30 (electric red)
+- Philosophy: Warm, clean, luxury-inspired design with cream/beige tones. Light mode first with soft shadows and rounded corners.
+- Primary accent: #8B7355 (warm brown)
 - Component styles: See [apps/frontend/src/index.css](apps/frontend/src/index.css)
 - Mock data: [apps/frontend/src/data/mockData.ts](apps/frontend/src/data/mockData.ts)

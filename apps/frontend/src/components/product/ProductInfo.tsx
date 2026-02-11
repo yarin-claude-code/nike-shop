@@ -57,7 +57,7 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
         <p className="text-accent text-sm font-bold uppercase tracking-wider mb-2">
           {product.brand.name}
         </p>
-        <h1 className="text-display-sm font-black text-white tracking-tighter">
+        <h1 className="text-display-sm font-black text-primary tracking-tighter">
           {product.name.toUpperCase()}
         </h1>
       </div>
@@ -69,7 +69,7 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
             <span className="text-4xl font-black text-accent">
               ${product.salePrice?.toFixed(2)}
             </span>
-            <span className="text-xl text-white/40 line-through">
+            <span className="text-xl text-primary-400 line-through">
               ${product.price.toFixed(2)}
             </span>
             <span className="badge-sale">
@@ -77,7 +77,7 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
             </span>
           </>
         ) : (
-          <span className="text-4xl font-black text-white">
+          <span className="text-4xl font-black text-primary">
             ${product.price.toFixed(2)}
           </span>
         )}
@@ -85,8 +85,8 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
 
       {/* Color Selection */}
       <div>
-        <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-          Color: <span className="text-white/50 normal-case font-normal">{selectedColor}</span>
+        <h3 className="text-sm font-bold text-primary uppercase tracking-wider mb-4">
+          Color: <span className="text-primary-400 normal-case font-normal">{selectedColor}</span>
         </h3>
         <div className="flex gap-3">
           {getUniqueColors(product.variants).map((color) => (
@@ -96,10 +96,10 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
                 setSelectedColor(color);
                 setSelectedSize(null);
               }}
-              className={`px-5 py-3 border text-sm font-bold uppercase tracking-wider transition-all ${
+              className={`px-5 py-3 border text-sm font-bold uppercase tracking-wider transition-all rounded-lg ${
                 selectedColor === color
                   ? 'border-accent bg-accent/10 text-accent'
-                  : 'border-primary-700 text-white/70 hover:border-white hover:text-white'
+                  : 'border-primary-200 text-primary-500 hover:border-primary hover:text-primary'
               }`}
             >
               {color}
@@ -111,7 +111,7 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
       {/* Size Selection */}
       <div>
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+          <h3 className="text-sm font-bold text-primary uppercase tracking-wider">
             Select Size
           </h3>
           <button className="text-sm text-accent hover:text-accent-400 font-medium transition-colors">
@@ -124,12 +124,12 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
               key={size}
               onClick={() => inStock && setSelectedSize(size)}
               disabled={!inStock}
-              className={`py-3 border text-sm font-bold transition-all ${
+              className={`py-3 border text-sm font-bold transition-all rounded-lg ${
                 selectedSize === size
                   ? 'border-accent bg-accent text-white'
                   : inStock
-                  ? 'border-primary-700 text-white hover:border-white'
-                  : 'border-primary-800 bg-surface-dark text-white/20 cursor-not-allowed'
+                  ? 'border-primary-200 text-primary hover:border-primary'
+                  : 'border-primary-100 bg-primary-50 text-primary-300 cursor-not-allowed'
               }`}
             >
               {size}
@@ -142,7 +142,7 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
       {selectedVariant &&
         selectedVariant.stockQuantity <= 5 &&
         selectedVariant.stockQuantity > 0 && (
-          <p className="text-accent text-sm font-bold animate-pulse">
+          <p className="text-red-500 text-sm font-bold animate-pulse">
             Only {selectedVariant.stockQuantity} left in stock - order soon!
           </p>
         )}
@@ -152,9 +152,9 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
         <button
           onClick={handleAddToCart}
           disabled={!selectedSize || isOutOfStock}
-          className={`w-full py-4 font-bold text-sm uppercase tracking-wider transition-all ${
+          className={`w-full py-4 font-bold text-sm uppercase tracking-wider transition-all rounded-full ${
             !selectedSize || isOutOfStock
-              ? 'bg-primary-800 text-white/30 cursor-not-allowed'
+              ? 'bg-primary-200 text-primary-400 cursor-not-allowed'
               : addedToCart
               ? 'bg-green-600 text-white'
               : 'btn-primary'
@@ -171,9 +171,9 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
         <button
           onClick={handleBuyNow}
           disabled={!selectedSize || isOutOfStock}
-          className={`w-full py-4 font-bold text-sm uppercase tracking-wider transition-all ${
+          className={`w-full py-4 font-bold text-sm uppercase tracking-wider transition-all rounded-full ${
             !selectedSize || isOutOfStock
-              ? 'border border-primary-800 text-white/30 cursor-not-allowed'
+              ? 'border border-primary-200 text-primary-400 cursor-not-allowed'
               : 'btn-accent'
           }`}
         >
@@ -182,27 +182,27 @@ export default function ProductInfo({ product }: ProductInfoProps): JSX.Element 
       </div>
 
       {/* Delivery info */}
-      <div className="grid grid-cols-2 gap-4 pt-4 border-t border-primary-800">
+      <div className="grid grid-cols-2 gap-4 pt-4 border-t border-primary-200">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 border border-primary-700 flex items-center justify-center">
-            <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-10 h-10 border border-primary-200 rounded-lg flex items-center justify-center">
+            <svg className="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
             </svg>
           </div>
           <div>
-            <p className="text-sm font-medium text-white">Free Shipping</p>
-            <p className="text-xs text-white/50">On orders over $100</p>
+            <p className="text-sm font-medium text-primary">Free Shipping</p>
+            <p className="text-xs text-primary-400">On orders over $100</p>
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 border border-primary-700 flex items-center justify-center">
-            <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-10 h-10 border border-primary-200 rounded-lg flex items-center justify-center">
+            <svg className="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </div>
           <div>
-            <p className="text-sm font-medium text-white">30-Day Returns</p>
-            <p className="text-xs text-white/50">Easy & free returns</p>
+            <p className="text-sm font-medium text-primary">30-Day Returns</p>
+            <p className="text-xs text-primary-400">Easy & free returns</p>
           </div>
         </div>
       </div>

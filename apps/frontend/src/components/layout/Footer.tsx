@@ -33,18 +33,18 @@ const footerColumns = [
 
 export default function Footer(): JSX.Element {
   return (
-    <footer className="bg-black border-t border-primary-800">
+    <footer className="bg-white border-t border-primary-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M21 8.719l-7.09 7.09c-.73.73-1.97.73-2.71 0L2 6.529l1.41-1.41 8.09 8.09 6.09-6.09L21 8.719z" />
               </svg>
-              <span className="text-2xl font-black tracking-tighter text-white">TONY'S</span>
+              <span className="text-2xl font-black tracking-tighter text-primary">TONY'S</span>
             </Link>
-            <p className="text-white/40 text-sm leading-relaxed">
+            <p className="text-primary-400 text-sm leading-relaxed">
               Premium footwear for every occasion. Engineered for performance, designed for style.
             </p>
           </div>
@@ -52,13 +52,13 @@ export default function Footer(): JSX.Element {
           {/* Link Columns */}
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <h4 className="text-white font-bold text-sm mb-6">{column.title}</h4>
+              <h4 className="text-primary font-bold text-sm mb-6">{column.title}</h4>
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.to}
-                      className="text-white/40 hover:text-white text-sm transition-colors"
+                      className="text-primary-400 hover:text-primary text-sm transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -81,7 +81,7 @@ export default function Footer(): JSX.Element {
               href={`https://${social.name}.com`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-primary-700 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-colors"
+              className="w-10 h-10 rounded-full border border-primary-200 flex items-center justify-center text-primary-400 hover:text-primary hover:border-primary transition-colors"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d={social.path} />
@@ -91,8 +91,8 @@ export default function Footer(): JSX.Element {
         </div>
 
         {/* Copyright */}
-        <div className="text-center border-t border-primary-800 pt-8">
-          <p className="text-white/30 text-sm">
+        <div className="text-center border-t border-primary-200 pt-8">
+          <p className="text-primary-400 text-sm">
             &copy; {new Date().getFullYear()} Tony's Shoe Store. All rights reserved.
           </p>
         </div>

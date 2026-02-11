@@ -14,13 +14,13 @@ export default function ErrorFallback({
   message = 'We encountered an error while loading the page. Please try again.',
 }: ErrorFallbackProps): JSX.Element {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center px-4">
+    <div className="min-h-screen bg-surface flex items-center justify-center px-4">
       <div className="max-w-md w-full text-center">
         {/* Error Icon */}
         <div className="mb-8">
-          <div className="w-24 h-24 mx-auto bg-surface-light border border-primary-700 flex items-center justify-center">
+          <div className="w-24 h-24 mx-auto bg-white border border-primary-200 rounded-2xl flex items-center justify-center shadow-soft">
             <svg
-              className="w-12 h-12 text-accent"
+              className="w-12 h-12 text-red-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -36,20 +36,20 @@ export default function ErrorFallback({
         </div>
 
         {/* Error Title */}
-        <h1 className="text-display-sm font-black text-white tracking-tighter mb-4 uppercase">
+        <h1 className="text-display-sm font-black text-primary tracking-tighter mb-4 uppercase">
           {title}
         </h1>
 
         {/* Error Message */}
-        <p className="text-white/60 text-lg mb-8">
+        <p className="text-primary-400 text-lg mb-8">
           {message}
         </p>
 
         {/* Debug Info (only in dev) */}
         {error && import.meta.env.DEV && (
-          <div className="mb-8 p-4 bg-surface-light border border-primary-700 text-left">
-            <p className="text-accent text-xs font-mono mb-2">Error Details:</p>
-            <p className="text-white/50 text-xs font-mono break-all">
+          <div className="mb-8 p-4 bg-white border border-primary-200 rounded-xl text-left">
+            <p className="text-red-500 text-xs font-mono mb-2">Error Details:</p>
+            <p className="text-primary-400 text-xs font-mono break-all">
               {error.message}
             </p>
           </div>
@@ -71,7 +71,7 @@ export default function ErrorFallback({
         </div>
 
         {/* Support Link */}
-        <p className="mt-8 text-white/30 text-sm">
+        <p className="mt-8 text-primary-300 text-sm">
           Need help?{' '}
           <a href="/contact" className="text-accent hover:underline">
             Contact Support
@@ -96,10 +96,9 @@ export function PageError({
   return (
     <div className="py-20 text-center">
       <div className="max-w-md mx-auto">
-        {/* Error Icon */}
-        <div className="w-16 h-16 mx-auto bg-surface-light border border-primary-700 flex items-center justify-center mb-6">
+        <div className="w-16 h-16 mx-auto bg-white border border-primary-200 rounded-2xl flex items-center justify-center mb-6 shadow-soft">
           <svg
-            className="w-8 h-8 text-accent"
+            className="w-8 h-8 text-red-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -113,10 +112,10 @@ export function PageError({
           </svg>
         </div>
 
-        <h3 className="text-xl font-bold text-white uppercase tracking-wider mb-2">
+        <h3 className="text-xl font-bold text-primary uppercase tracking-wider mb-2">
           {title}
         </h3>
-        <p className="text-white/50 mb-6">
+        <p className="text-primary-400 mb-6">
           {message}
         </p>
 
@@ -138,8 +137,8 @@ export function SectionError({
   onRetry?: () => void;
 }): JSX.Element {
   return (
-    <div className="border border-dashed border-primary-700 p-8 text-center">
-      <div className="text-accent mb-4">
+    <div className="border border-dashed border-primary-200 rounded-2xl p-8 text-center">
+      <div className="text-red-500 mb-4">
         <svg
           className="w-10 h-10 mx-auto"
           fill="none"
@@ -154,7 +153,7 @@ export function SectionError({
           />
         </svg>
       </div>
-      <p className="text-white/50 mb-4">{message}</p>
+      <p className="text-primary-400 mb-4">{message}</p>
       {onRetry && (
         <button
           onClick={onRetry}
