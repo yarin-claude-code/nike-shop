@@ -26,11 +26,13 @@ export class AllExceptionsFilter implements ExceptionFilter {
         message = exceptionResponse;
       } else if (typeof exceptionResponse === 'object' && exceptionResponse !== null) {
         const responseObj = exceptionResponse as Record<string, unknown>;
-        message = responseObj.message || responseObj.error || 'An error occurred';
+        const msg = responseObj.message || responseObj.error;
 
         // If message is an array (validation errors), join them
-        if (Array.isArray(message)) {
-          message = message.join(', ');
+        if (Array.isArray(msg)) {
+          message = msg.join(', ');
+        } else if (typeof msg === 'string') {
+          message = msg;
         }
       }
     } else {
