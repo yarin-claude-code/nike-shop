@@ -39,9 +39,6 @@ export class Product {
   @Column({ type: 'bigint', name: 'category_id' })
   categoryId: number;
 
-  @Column({ type: 'varchar', length: 500, nullable: true, name: 'model_3d_url' })
-  model3dUrl: string | null;
-
   @Column({ type: 'boolean', default: false, name: 'is_featured' })
   isFeatured: boolean;
 

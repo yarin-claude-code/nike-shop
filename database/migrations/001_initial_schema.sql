@@ -97,7 +97,6 @@ CREATE TABLE products (
   description TEXT,
   price NUMERIC(10,2) NOT NULL CHECK (price > 0),
   sale_price NUMERIC(10,2) CHECK (sale_price IS NULL OR (sale_price > 0 AND sale_price < price)),
-  model_3d_url TEXT,
   is_featured BOOLEAN NOT NULL DEFAULT false,
   is_active BOOLEAN NOT NULL DEFAULT true,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -112,7 +111,6 @@ CREATE INDEX products_featured_idx ON products (is_featured) WHERE is_featured =
 CREATE INDEX products_active_idx ON products (is_active, created_at) WHERE is_active = true;
 
 COMMENT ON TABLE products IS 'Shoe products';
-COMMENT ON COLUMN products.model_3d_url IS 'URL to .glb 3D model for Three.js viewer';
 
 -- ============================================
 -- 6. PRODUCT IMAGES TABLE
@@ -234,7 +232,9 @@ INSERT INTO brands (name, slug, description) VALUES
   ('Jordan', 'jordan', 'Air Jordan Brand'),
   ('New Balance', 'new-balance', 'Made in USA'),
   ('Puma', 'puma', 'Forever Faster'),
-  ('Reebok', 'reebok', 'Be More Human');
+  ('Reebok', 'reebok', 'Be More Human'),
+  ('Yeezy', 'yeezy', 'Yeezy by Adidas'),
+  ('On Cloud', 'on-cloud', 'Swiss Performance Running');
 
 -- Insert sample categories
 INSERT INTO categories (name, slug, description) VALUES

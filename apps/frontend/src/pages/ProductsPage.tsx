@@ -85,9 +85,9 @@ export default function ProductsPage(): JSX.Element {
     : newFilter
     ? 'NEW ARRIVALS'
     : categoryFilter
-    ? categories.find((c) => c.slug === categoryFilter)?.name.toUpperCase() || 'SHOP'
+    ? categories.find((c) => c.slug === categoryFilter)?.name?.toUpperCase() || 'SHOP'
     : brandFilter
-    ? brands.find((b) => b.slug === brandFilter)?.name.toUpperCase() || 'SHOP'
+    ? brands.find((b) => b.slug === brandFilter)?.name?.toUpperCase() || 'SHOP'
     : 'ALL PRODUCTS';
 
   const isLoading = productsLoading || brandsLoading || categoriesLoading;

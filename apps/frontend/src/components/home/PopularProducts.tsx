@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { api } from '../../lib/api';
 import { Product } from '../../types/product';
+import { api } from '../../lib/api';
 import { useCartStore } from '../../stores/cartStore';
 
 function ProductCardSkeleton(): JSX.Element {
@@ -133,9 +133,9 @@ function PopularProductCard({ product }: PopularProductCardProps): JSX.Element {
 export default function PopularProducts(): JSX.Element {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const { data: products, isLoading } = useQuery({
+  const { data: products = [], isLoading } = useQuery<Product[]>({
     queryKey: ['products', 'featured'],
-    queryFn: async (): Promise<Product[]> => {
+    queryFn: async () => {
       const res = await api.get('/products/featured');
       return res.data;
     },
