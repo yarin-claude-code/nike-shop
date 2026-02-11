@@ -47,10 +47,11 @@ Plans:
   3. Products endpoint supports search with partial text matching on product name, brand, and description
   4. Brand pages endpoint returns brand information and associated products
   5. Backend code follows clean NestJS patterns (DTOs with validation, proper error handling, repository pattern)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 02-01-PLAN.md — Products API with filtering, search, and pagination via QueryBuilder
+- [ ] 02-02-PLAN.md — Brand pages endpoint and global exception filter
 
 ### Phase 3: Design System & UI Foundation
 **Goal**: Design system and reusable UI components are established across the application
